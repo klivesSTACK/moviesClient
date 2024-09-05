@@ -35,8 +35,8 @@ export default function AddMovie(){
         })
         .then( res => res.json())
         .then( data => {
-            console.log()
-            if(data.message === ""){
+            console.log(data)
+            if(data){
                 Swal.fire({
                     title: "Add Successful",
                     icon: "success",
@@ -57,6 +57,9 @@ export default function AddMovie(){
                 }); 
             }
         })
+        .catch(error => {
+            console.error('Error message:', error)     
+        });
         setTitle('');
         setDirector('');
         setYear('');
